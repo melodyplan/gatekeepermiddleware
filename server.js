@@ -65,7 +65,13 @@ const USERS = [
 //     (aka, `req.user = matchedUser`)
 function gateKeeper(req, res, next) {
   // your code should replace the line below
+  req.get('x-username-and-password');
+  queryString.parse(`${USERS.userName}&${USERS.password}`)
   next();
+}
+
+function findUser(user){
+  return user.userName === 'joeschmoe@business.com';
 }
 
 // Add the middleware to your app!
